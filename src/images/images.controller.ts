@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ImagesService } from './images.service';
 import { CreateImageDto } from './dto/create-image.dto';
@@ -23,6 +24,11 @@ export class ImagesController {
   @Get()
   findAll() {
     return this.imagesService.findAll();
+  }
+
+  @Get('filter')
+  findFiltered(@Query('tags') tags: string = ''): string {
+    return this.imagesService.findFiltered(tags);
   }
 
   @Get(':id')

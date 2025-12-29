@@ -12,6 +12,10 @@ export class ImagesService {
     return `This action returns all images`;
   }
 
+  findFiltered(filter: string) {
+    return `This action returns all images filtered by tags: ${filter.length ? filter.split(',').join(', ') : 'no filters'}`;
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} image`;
   }
